@@ -532,7 +532,7 @@ public class ProfilePanel extends JPanel {
             }
 
             // Update password in user object
-            currentUser.setPassword(SecurityUtils.hashPassword(newPassword));
+            currentUser.setPassword(newPassword);
 
             // Clear password fields
             currentPasswordField.setText("");

@@ -279,8 +279,8 @@ public class AuthController {
 
         try {
             // Hash the new password before storing
-            String hashedPassword = SecurityUtils.hashPassword(newPassword);
-            user.setPassword(hashedPassword);
+           
+            user.setPassword(newPassword);
             userDAO.update(user);
             return new ResetResult(true, "Password reset successful");
         } catch (SQLException e) {

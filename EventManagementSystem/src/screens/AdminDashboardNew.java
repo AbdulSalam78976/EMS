@@ -1449,7 +1449,7 @@ public class AdminDashboardNew extends JFrame {
                             }
 
                             // Update password with new hash
-                            currentUser.setPassword(SecurityUtils.hashPassword(newPassword));
+                            currentUser.setPassword(newPassword);
                         }
 
                         // Save changes

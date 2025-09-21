@@ -280,7 +280,7 @@ public class UserEditDialog extends JDialog {
             }
 
             // Update password
-            user.setPassword(SecurityUtils.hashPassword(newPassword));
+            user.setPassword(newPassword);
             AuthController.getInstance().updateUser(user);
             
             showSuccess("Password changed successfully");

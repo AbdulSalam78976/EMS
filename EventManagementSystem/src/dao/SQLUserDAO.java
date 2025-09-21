@@ -110,7 +110,7 @@ public class SQLUserDAO implements UserDAO {
         try (PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, name);
             stmt.setString(2, email);
-            stmt.setString(3, SecurityUtils.hashPassword(password));
+            stmt.setString(3, password);
             stmt.setString(4, role.toString());
             stmt.setBoolean(5, true);
             stmt.setDate(6, Date.valueOf(java.time.LocalDate.now().toString()));
@@ -160,7 +160,7 @@ public class SQLUserDAO implements UserDAO {
             // Only hash if the password is not already hashed (e.g., check length or pattern)
             String password = user.getPassword();
             if (password.length() < 60) { // Assuming BCrypt hashed passwords are 60 chars
-                password = SecurityUtils.hashPassword(password);
+                password = password;
             }
             stmt.setString(3, password);
             stmt.setString(4, user.getRole().toString());

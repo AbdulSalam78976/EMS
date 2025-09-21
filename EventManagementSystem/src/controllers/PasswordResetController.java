@@ -67,15 +67,12 @@ public class PasswordResetController {
                 return new ResetResult(false, "User not found");
             }
 
-            // Hash the new password before storing
-            String hashedPassword = SecurityUtils.hashPassword(newPassword);
-
             // Update password in database with hashed password
             try (Connection conn = DatabaseUtil.getConnection();
                  PreparedStatement stmt = conn.prepareStatement(
                      "UPDATE users SET password = ? WHERE email = ?")) {
                 
-                stmt.setString(1, hashedPassword);  // Store hashed password
+                stmt.setString(1, newPassword);  // Store hashed password
                 stmt.setString(2, email);
                 
                 int rowsAffected = stmt.executeUpdate();

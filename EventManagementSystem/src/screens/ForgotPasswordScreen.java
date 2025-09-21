@@ -3,8 +3,6 @@ package screens;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import controllers.AuthController;
 import controllers.PasswordResetController;
